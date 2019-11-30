@@ -1,18 +1,6 @@
-machine:
+# circle.yml
+machine: # 虛擬機的環境
   node:
-    version: 13.2.0
-
-dependencies:
-  cache_directories:
-    - vendor
-  override:
-    - composer install
-
-test:
-  override:
-    - ./node_modules/.bin/mocha
-
-general:
-  branches:
-    only:
-      - release
+    version: 13.2.0 #把剛剛得到的node version填到這裡
+  test:
+    - npm test  #每一個deploy到github上的commit都會執行npm test

@@ -1,8 +1,18 @@
-# circle.yml
 machine:
   node:
     version: 13.2.0
 
+dependencies:
+  cache_directories:
+    - vendor
+  override:
+    - composer install
+
 test:
   override:
     - ./node_modules/.bin/mocha
+
+general:
+  branches:
+    only:
+      - release
